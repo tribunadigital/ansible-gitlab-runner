@@ -67,7 +67,7 @@
   block:
     - name: (MacOS) Stop GitLab Runner
       command: "{{ gitlab_runner_executable }} stop"
-      become: yes
+      become: "{{ gitlab_runner_system_mode }}"
 
     - name: (MacOS) Download GitLab Runner
       get_url:
@@ -85,7 +85,7 @@
 
     - name: (MacOS) Start GitLab Runner
       command: "{{ gitlab_runner_executable }} start"
-      become: yes
+      become: "{{ gitlab_runner_system_mode }}"
 
   when:
     - gitlab_runner_exists
