@@ -644,7 +644,7 @@
   lineinfile:
     dest: "{{ temp_runner_config.path }}"
     regexp: '^\s*user ='
-    line: '  user = {{ gitlab_runner.ssh_user|default("") | to_json }}'
+    line: '    user = {{ gitlab_runner.ssh_user|default("") | to_json }}'
     state: "{{ 'present' if gitlab_runner.ssh_user is defined else 'absent' }}"
     insertafter: '^\s*\[runners\.ssh\]'
     backrefs: no
@@ -657,7 +657,7 @@
   lineinfile:
     dest: "{{ temp_runner_config.path }}"
     regexp: '^\s*host ='
-    line: '  host = {{ gitlab_runner.ssh_host|default("") | to_json }}'
+    line: '    host = {{ gitlab_runner.ssh_host|default("") | to_json }}'
     state: "{{ 'present' if gitlab_runner.ssh_host is defined else 'absent' }}"
     insertafter: '^\s*\[runners\.ssh\]'
     backrefs: no
@@ -670,7 +670,7 @@
   lineinfile:
     dest: "{{ temp_runner_config.path }}"
     regexp: '^\s*port ='
-    line: '  port = "{{ gitlab_runner.ssh_port|default("") | to_json }}"'
+    line: '    port = {{ gitlab_runner.ssh_port|default("") | to_json }}'
     state: "{{ 'present' if gitlab_runner.ssh_port is defined else 'absent' }}"
     insertafter: '^\s*\[runners\.ssh\]'
     backrefs: no
@@ -683,7 +683,7 @@
   lineinfile:
     dest: "{{ temp_runner_config.path }}"
     regexp: '^\s*password ='
-    line: '  password = {{ gitlab_runner.ssh_password|default("") | to_json }}'
+    line: '    password = {{ gitlab_runner.ssh_password|default("") | to_json }}'
     state: "{{ 'present' if gitlab_runner.ssh_password is defined else 'absent' }}"
     insertafter: '^\s*\[runners\.ssh\]'
     backrefs: no
@@ -696,7 +696,7 @@
   lineinfile:
     dest: "{{ temp_runner_config.path }}"
     regexp: '^\s*identity_file ='
-    line: '  identity_file = {{ gitlab_runner.ssh_identity_file|default("") | to_json }}'
+    line: '    identity_file = {{ gitlab_runner.ssh_identity_file|default("") | to_json }}'
     state: "{{ 'present' if gitlab_runner.ssh_identity_file is defined else 'absent' }}"
     insertafter: '^\s*\[runners\.ssh\]'
     backrefs: no
